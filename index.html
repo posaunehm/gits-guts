@@ -95,20 +95,14 @@
        <h1>磁器</h1>
        <h2>Porcelain</h2>
     </div>
-
 </div>
-
-<div class="hint">
-    <p>Use a spacebar or arrow keys to navigate</p>
-</div>
-<script>
-if ("ontouchstart" in document.documentElement) { 
-    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-}
-</script>
 
 <script src="js/impress.js"></script>
-<script>impress().init();</script>
+<script src="js/impressConsole.js"></script>
+<script>
+    impress().init();
+    impressConsole().init();
+</script>
 
 </body>
 </html>
