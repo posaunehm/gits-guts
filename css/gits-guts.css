@@ -1,0 +1,40 @@
+#git {
+    width: 600px;
+    text-align: center;
+    font-size: 250px;
+}
+
+#git p {
+    font-size: 30px;
+    margin-top: -30px;
+    opacity: 0.5;
+}
+
+.git-props {
+    text-align: center;
+    font-size: 30px;
+    line-height: 2.0;
+}
+
+pre, code {
+    font-family: monospace;
+}
+
+#git-prop3 {
+    margin-top: 23px;
+}
+
+.small {
+    margin-top: -11px;
+    font-size: 12px;
+    line-height: 1.0;
+}
+
+/* Diagram styles */
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: white;
+}
