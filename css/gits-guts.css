@@ -5,8 +5,22 @@
 #title {
     text-align: center;
 }
+
 #title h1 {
     font-family: 'Lobster', cursive;
+}
+
+#mydetails {
+    text-align: center;
+}
+
+#mydetails p {
+    font-size: 20px;
+    margin-bottom: -25px;
+}
+
+#mydetails a {
+    font-size: 20px;
 }
 
 #git {
