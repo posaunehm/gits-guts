@@ -1,3 +1,7 @@
+.step .notes {
+    display: none;
+}
+
 #title {
     text-align: center;
 }
