@@ -37,6 +37,71 @@ pre, code {
     line-height: 1.0;
 }
 
+#jituha {
+    width: 627px;
+    text-align: center;
+ }
+
+#jituha h1 {
+    font-size: 250px;
+}
+
+#jituha .subitems {
+    font-size: 27px;
+    margin-top: -50px;
+ }
+
+#jituha .subitems {
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+#jituha.future .subitems {
+    opacity: 0;
+ }
+
+#jituha.present .subitems {
+    -webkit-transform: opacity;
+    -moz-transform:    opacity;
+    -ms-transform:     opacity;
+    -o-transform:      opacity;
+    transform:         opacity;
+
+    -webkit-transition-delay: 0.7s;
+    -moz-transition-delay:    0.7s;
+    -ms-transition-delay:     0.7s;
+    -o-transition-delay:      0.7s;
+    transition-delay:         0.7s;
+}
+
+#jituha.past {
+    opacity: 0;
+    -webkit-transform: opacity;
+    -moz-transform:    opacity;
+    -ms-transform:     opacity;
+    -o-transform:      opacity;
+    transform:         opacity;
+}
+
+.pptitle {
+    width: 627px;
+    text-align: center;
+ }
+
+.pptitle h1 {
+    font-size: 220px;
+    opacity: 0.3;
+}
+
+.pptitle h2 {
+    font-size: 150px;
+    margin-top: -275px;
+    font-family: 'Lobster', cursive;
+}
+
 /* Diagram styles */
 .chart rect {
   fill: steelblue;
