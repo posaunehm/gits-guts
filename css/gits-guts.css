@@ -138,6 +138,50 @@ pre, code {
     padding: 10px;
 }
 
+#gitCore {
+    width: 600px;
+    text-align: center;
+
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+#gitCore.future {
+    opacity: 0;
+}
+
+#gitCore.present {
+    opacity: 1;
+    -webkit-transform: opacity;
+    -moz-transform:    opacity;
+    -ms-transform:     opacity;
+    -o-transform:      opacity;
+    transform:         opacity;
+}
+
+#gitCore h1 {
+    font-size: 250px;
+}
+
+#gitCore h2 {
+    font-size: 35px;
+}
+
+#gitCore h2.pre {
+  position: relative;
+  left: -180px;
+  top: 115px;
+}
+
+#gitCore h2.post {
+  position: relative;
+  left: 130px;
+  top: -70px;
+}
+
 .pptitle {
     width: 627px;
     text-align: center;
