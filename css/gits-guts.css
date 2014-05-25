@@ -127,17 +127,6 @@ pre, code {
     transform:         opacity;
 }
 
-/*
-#filesystems.past {
-    opacity: 0;
-    -webkit-transform: opacity;
-    -moz-transform:    opacity;
-    -ms-transform:     opacity;
-    -o-transform:      opacity;
-    transform:         opacity;
-}
-  */
-
 #filesystems h1 {
     font-family: 'Lobster', cursive;
 }
