@@ -123,19 +123,6 @@ pre, code {
     transition:         0.5s;
 }
 
-#gitCore.future {
-    opacity: 0;
-}
-
-#gitCore.present {
-    opacity: 1;
-    -webkit-transform: opacity;
-    -moz-transform:    opacity;
-    -ms-transform:     opacity;
-    -o-transform:      opacity;
-    transform:         opacity;
-}
-
 #gitCore h1 {
     font-size: 250px;
 }
@@ -144,16 +131,70 @@ pre, code {
     font-size: 35px;
 }
 
-#gitCore h2.pre {
+#gitCore.future h1 {
+    opacity: 0;
+}
+
+#gitCore.present h1 {
+    opacity: 1;
+
+    -webkit-transform: opacity;
+    -moz-transform:    opacity;
+    -ms-transform:     opacity;
+    -o-transform:      opacity;
+    transform:         opacity;
+
+    -webkit-transition: 0.9s;
+    -moz-transition:    0.9s;
+    -ms-transition:     0.9s;
+    -o-transition:      0.9s;
+    transition:         0.9s;
+}
+
+#gitCore.future h2 {
+    opacity: 0;
+}
+
+#gitCore.present h2 {
+    opacity: 1;
+
+    -webkit-transform: opacity;
+    -moz-transform:    opacity;
+    -ms-transform:     opacity;
+    -o-transform:      opacity;
+    transform:         opacity;
+
+    -webkit-transition: 0.9s;
+    -moz-transition:    0.9s;
+    -ms-transition:     0.9s;
+    -o-transition:      0.9s;
+    transition:         0.9s;
+}
+
+#gitCore.present h2.koredake {
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay:    0.5s;
+    -ms-transition-delay:     0.5s;
+    -o-transition-delay:      0.5s;
+    transition-delay:         0.5s;
+}
+
+#gitCore h2.gitno {
   position: relative;
   left: -180px;
   top: 115px;
 }
 
-#gitCore h2.post {
+#gitCore h2.ha {
   position: relative;
-  left: 130px;
-  top: -70px;
+  left: 176px;
+  top: -118px;
+}
+
+#gitCore h2.koredake {
+  position: relative;
+  left: 325px;
+  top: -170px;
 }
 
 .pptitle {
