@@ -10,16 +10,19 @@
     font-family: 'Lobster', cursive;
 }
 
-#mydetails {
+#title div#mydetails {
     text-align: center;
+    position: absolute;
+    bottom: -250px;
+    left: 190px;
 }
 
-#mydetails p {
+#title #mydetails p {
     font-size: 20px;
     margin-bottom: -25px;
 }
 
-#mydetails a {
+#title #mydetails a {
     font-size: 20px;
 }
 
