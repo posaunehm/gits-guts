@@ -98,25 +98,6 @@ pre, code {
 
 #filesystems {
     width: 1050px;
-
-    -webkit-transition: 0.5s;
-    -moz-transition:    0.5s;
-    -ms-transition:     0.5s;
-    -o-transition:      0.5s;
-    transition:         0.5s;
-}
-
-#filesystems.future {
-    opacity: 0;
-}
-
-#filesystems.present {
-    opacity: 1;
-    -webkit-transform: opacity;
-    -moz-transform:    opacity;
-    -ms-transform:     opacity;
-    -o-transform:      opacity;
-    transform:         opacity;
 }
 
 #filesystems h1 {
