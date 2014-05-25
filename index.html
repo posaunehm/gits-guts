@@ -191,6 +191,40 @@
         Third Row: 連想記憶ファイルシステムではヒエラルキーは必要なくなります。
                    同じ名前で違うデータを入れることができないからです。
         </p>
+        <p>
+        Example: Traditional
+        </p>
+        <pre>
+        $ mkdir foo bar
+        $ echo foo > foo/hoge
+        $ ls -l foo            #See there is a file called 'hoge'
+        $ cat foo/hoge         #See the contents of the file is 'foo'
+        $ echo bar > bar/hoge
+        $ ls -l bar
+        $ cat bar/hoge
+        $ tree
+        $ echo baz >> foo/hoge
+        $ cat foo/hoge         #Now says "foobaz"; no way to restore the original
+        $ cat bar/hoge
+        </pre>
+        <p>
+        Example: Content-Addressable
+        </p>
+        <pre>
+        $ git init             #We will be using git as our content-addressable fs
+        $ git count-objects    #There are no objects
+        $ echo foo | git hash-object -w --stdin
+        $ git count-objects    #Now there is one object!
+        $ git cat-file blob 257cc5642cb1a054f08cc83f2d943e56fd3ebe99
+        $ git cat-file blob 257c #As the number of objects increase you might need more characters...
+        $ echo bar | git hash-object -w --stdin
+        $ git count-objects    #Now there are two objects!
+        $ git cat-file blob 5716
+        $ echo `git cat-file blob 257c`baz | git hash-object -w --stdin
+        $ git cat-file blob 9dab
+        $ git count-objects    #Now there are three objects!
+        $ find .git/objects -type f
+        </pre>
       </div>
     </div>
 
