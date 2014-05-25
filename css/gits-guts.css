@@ -70,6 +70,7 @@ pre, code {
 #jituha .subitems {
     font-size: 27px;
     margin-top: -50px;
+    opacity: 0;
  }
 
 #jituha .subitems {
@@ -80,11 +81,8 @@ pre, code {
     transition:         0.5s;
 }
 
-#jituha.future {
-    opacity: 0;
- }
-
 #jituha.present .subitems {
+    opacity: 1;
     -webkit-transform: opacity;
     -moz-transform:    opacity;
     -ms-transform:     opacity;
@@ -96,15 +94,6 @@ pre, code {
     -ms-transition-delay:     0.7s;
     -o-transition-delay:      0.7s;
     transition-delay:         0.7s;
-}
-
-#jituha.past {
-    opacity: 0;
-    -webkit-transform: opacity;
-    -moz-transform:    opacity;
-    -ms-transform:     opacity;
-    -o-transform:      opacity;
-    transform:         opacity;
 }
 
 #filesystems {
