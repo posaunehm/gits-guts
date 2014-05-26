@@ -2,6 +2,12 @@
     display: none;
 }
 
+li {
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px;
+}
+
 #title {
     text-align: center;
 }
@@ -195,6 +201,80 @@ pre, code {
   position: relative;
   left: 325px;
   top: -170px;
+}
+
+#gitObjects {
+    width: 600px;
+    text-align: center;
+}
+
+#gitObjects h1 {
+    font-size: 350px;
+    font-family: serif;
+}
+
+#gitObjects.future h1 {
+    opacity: 0;
+}
+
+#gitObjects.present h1 {
+    opacity: 1;
+
+    -webkit-transform: opacity;
+    -moz-transform:    opacity;
+    -ms-transform:     opacity;
+    -o-transform:      opacity;
+    transform:         opacity;
+
+    -webkit-transition: 1.2s;
+    -moz-transition:    1.2s;
+    -ms-transition:     1.2s;
+    -o-transition:      1.2s;
+    transition:         1.2s;
+
+    -webkit-transition-delay: 1.0s;
+    -moz-transition-delay:    1.0s;
+    -ms-transition-delay:     1.0s;
+    -o-transition-delay:      1.0s;
+    transition-delay:         1.0s;
+}
+
+#gitObjects h2.pre {
+    position: relative;
+    top: 205px;
+    font-size: 37px;
+}
+
+#gitObjects h2.post {
+    position: relative;
+    bottom: 277px;
+    font-size: 65px;
+}
+
+.objectDesc {
+    text-align: center;
+}
+
+.objectDesc h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 120px;
+}
+
+.objectDesc li {
+  font-size: 30px;
+}
+
+.naiyo {
+  position: absolute;
+  float: right;
+  right: -230px;
+    bottom: 295px;
+}
+
+.naiyo li {
+    padding: 0px;
+    text-align: left;
+    font-size: 25px;
 }
 
 .pptitle {

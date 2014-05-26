@@ -255,6 +255,69 @@
       </div>
     </div>
 
+    <div id="gitObjects" class="step objectDesc" data-x="-875" data-y="2500" data-scale="0.01" data-rotate="180">
+      <h2 class="pre">オブジェクトは</h2>
+      <h1>三</h1>
+      <h2 class="post">種類ある</h2>
+      <div class="notes">
+        <p>
+        </p>
+      </div>
+    </div>
+
+    <div id="blob" class="step objectDesc" data-x="-868" data-y="2500" data-scale="0.01" data-rotate="270">
+      <h1>Blob</h1>
+      <ul>
+        <li>自分で作って入れている、ユーザーデータ</li>
+        <li>gitにとって意味がない、ただのデータ</li>
+        <li>バイナリでもテキストでもブロブになる</li>
+      </ul>
+      <div class="notes">
+        <p>
+        </p>
+      </div>
+    </div>
+
+    <div id="tree" class="step objectDesc" data-x="-875" data-y="2497" data-scale="0.01" data-rotate="180">
+      <h1>Tree</h1>
+      <ul>
+        <li>ファイルヒエラルキーを表せるためのオブジェクト</li>
+        <li>連想記憶ファイルシステムから取得して、トラディショナルなファイルシステムにtranslation layer</li>
+        <li>一つのツリーは数ブロブと数ツリーを指定する</li>
+      </ul>
+      <div class="notes">
+        <p>
+        </p>
+      </div>
+    </div>
+
+    <div id="commit" class="step objectDesc" data-x="-882" data-y="2500" data-scale="0.01" data-rotate="90">
+      <h1>Commit</h1>
+      <div class="naiyo">
+        <h2>内容</h2>
+        <ul>
+          <li>トップレベルのツリーのSHA1</li>
+          <li>親のコミットのSHA1</li>
+          <li>作者と作成時間</li>
+          <li>コミッターとコミット時間</li>
+          <li>コミットメッセージ</li>
+        </ul>
+      </div>
+      <ul>
+        <li>ある時点のスナップショット</li>
+        <li>一つのコミットは必ず一つのツリーを指定する</li>
+        <li>一つのコミットは数コミットを親コミットとして指定する</li>
+        <li>コミットは直接ブロブを指定しない</li>
+      </ul>
+      <div class="notes">
+        <p>
+        Tree: ツリーを指定しないコミットも、二つ以上のツリーを指定するコミットもありません。
+        Parents: 親がない場合もあり、二つ以上の親コミットがある場合もあります。二つ以上だったらマージコミットになります。
+        Blobs: They point to blobs via trees
+        </p>
+      </div>
+    </div>
+
     <div id="inside-overview" class="step" data-x="-875" data-y="2515" data-scale="0.10">
     </div>
 
