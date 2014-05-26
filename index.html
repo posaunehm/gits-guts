@@ -192,6 +192,8 @@
         <p>
         First Row: Figure out how to say "one-to-one mapping" so I can explain
         this better.
+        gitの場合はSHA1というアルゴリズムで名前が決まっているので、
+        「名前」ではなく「SHA1」とはよく言われています　（例：コミットのSHA1、ファイルのSHA1）
         </p>
         <p>
         Second Row: 元のデータが残るので、不変的なファイルシステムとも言えます
@@ -224,13 +226,13 @@
         $ git count-objects    #There are no objects
         $ echo foo | git hash-object -w --stdin
         $ git count-objects    #Now there is one object!
-        $ git cat-file blob 257cc5642cb1a054f08cc83f2d943e56fd3ebe99
-        $ git cat-file blob 257c #As the number of objects increase you might need more characters...
+        $ git cat-file -p 257cc5642cb1a054f08cc83f2d943e56fd3ebe99
+        $ git cat-file -p 257c #As the number of objects increase you might need more characters...
         $ echo bar | git hash-object -w --stdin
         $ git count-objects    #Now there are two objects!
-        $ git cat-file blob 5716
-        $ echo `git cat-file blob 257c`baz | git hash-object -w --stdin
-        $ git cat-file blob 9dab
+        $ git cat-file -p 5716
+        $ echo `git cat-file -p 257c`baz | git hash-object -w --stdin
+        $ git cat-file -p 9dab
         $ git count-objects    #Now there are three objects!
         $ find .git/objects -type f
         </pre>
