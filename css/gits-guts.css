@@ -307,6 +307,42 @@ pre, code {
     font-family: 'Lobster', cursive;
 }
 
+.cmdlist td {
+    font-size: 20px;
+    vertical-align: middle;
+    font-family: monospace;
+    padding-right: 20px;
+}
+
+.cmdlist td.middle li {
+  text-align: center;
+}
+
+.cmdlist td.right {
+  text-align: right;
+}
+
+.cmdlist td.right li {
+  text-align: right;
+}
+
+.cmdlist li {
+    padding: 0px;
+    text-align: left;
+}
+
+.cmdlist td .highlight {
+    font-size: 50px;
+}
+
+#plumbingCommands {
+  width: 950px;
+}
+
+#porcelainCommands {
+  width: 1200px;
+}
+
 /* Diagram styles */
 .chart rect {
   fill: steelblue;
