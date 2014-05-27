@@ -269,27 +269,27 @@
 
     <div id="blob" class="step objectDesc" data-x="-868" data-y="2500" data-scale="0.01" data-rotate="270">
       <h1>Blob</h1>
+      <br />
+      <img src="img/blob.svg" alt="Blob" height="500" />
+      <div class="notes">
       <ul>
         <li>自分で作って入れている、ユーザーデータ</li>
         <li>gitにとって意味がない、ただのデータ</li>
         <li>バイナリでもテキストでもブロブになる</li>
       </ul>
-      <div class="notes">
-        <p>
-        </p>
       </div>
     </div>
 
     <div id="tree" class="step objectDesc" data-x="-875" data-y="2497" data-scale="0.01" data-rotate="180">
       <h1>Tree</h1>
-      <ul>
-        <li>ファイルヒエラルキーを表せるためのオブジェクト</li>
-        <li>連想記憶ファイルシステムから取得して、トラディショナルなファイルシステムにtranslation layer</li>
-        <li>一つのツリーは数ブロブと数ツリーを指定する</li>
-      </ul>
+      <br />
+      <img src="img/tree.svg" alt="Tree" height="500"/>
       <div class="notes">
-        <p>
-        </p>
+        <ul>
+          <li>ファイルヒエラルキーを表せるためのオブジェクト</li>
+          <li>連想記憶ファイルシステムから取得して、トラディショナルなファイルシステムにtranslation layer</li>
+          <li>一つのツリーは数ブロブと数ツリーを指定する</li>
+        </ul>
       </div>
     </div>
 
@@ -305,15 +305,18 @@
           <li>コミットメッセージ</li>
         </ul>
       </div>
-      <ul>
-        <li>ある時点のスナップショット</li>
-        <li>一つのコミットは必ず一つのツリーを指定する</li>
-        <li>一つのコミットは数コミットを親コミットとして指定する</li>
-        <li>コミットは直接ブロブを指定しない</li>
-      </ul>
+      <br />
+      <img src="img/commit.svg" alt="Commit" height="500" />
       <div class="notes">
+        <ul>
+          <li>ある時点のスナップショット</li>
+          <li>一つのコミットは一つのツリーを指定する</li>
+          <li>一つのコミットは数コミットを親コミットとして指定する</li>
+          <li>コミットは直接ブロブを指定しない</li>
+        </ul>
         <p>
-        Tree: ツリーを指定しないコミットも、二つ以上のツリーを指定するコミットもありません。
+        Tree: 二つ以上のツリーを指定するコミットはありません。
+              注釈付きタグの場合だけ、コミットはツリーを指定しない。
         Parents: 親がない場合もあり、二つ以上の親コミットがある場合もあります。二つ以上だったらマージコミットになります。
         Blobs: They point to blobs via trees
         </p>
