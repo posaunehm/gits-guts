@@ -277,6 +277,20 @@ pre, code {
     font-size: 25px;
 }
 
+#gitIndex{
+    width: 1000px;
+    text-align: center;
+}
+
+#gitIndex h1 {
+    font-size: 120px;
+    font-family: 'Lobster', cursive;
+}
+
+#gitIndex h2 {
+    font-size: 35px;
+}
+
 .pptitle {
     width: 627px;
     text-align: center;
