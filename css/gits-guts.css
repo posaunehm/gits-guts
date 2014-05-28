@@ -292,15 +292,9 @@ pre, code {
 }
 
 #ref h1 {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform:    rotate(-90deg);
-    -ms-transform:     rotate(-90deg);
-    -o-transform:      rotate(-90deg);
-    transform:         rotate(-90deg);
-
     position: absolute;
     float: left;
-    left: 190px;
+    left: 240px;
     bottom: 225px;
 }
 
