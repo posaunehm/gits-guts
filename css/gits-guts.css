@@ -351,11 +351,4 @@ pre, code {
   width: 1200px;
 }
 
-/* Diagram styles */
-.chart rect {
-  fill: steelblue;
-}
 
-.chart text {
-  fill: white;
-}
