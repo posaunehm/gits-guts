@@ -335,6 +335,24 @@
       <h1>The Cache</h1>
       <h2>又は</h2>
       <h1>The Staging Area</h1>
+      <div class="notes">
+      <p>導く　みちびく</p>
+      <ul>
+        <li>コミットするための準備エリア</li>
+        <li>作業フォルダーのキャッシュ</li>
+        <li>データ自体は入っていない。git addをするとき、ブロブを作られる。そのブロブのidをindexに入れられる。</li>
+        <li>gitの速度はindexによってだいぶ変わるので、最適化のために何回も変わっています。現在使われているバージョンは２、３、４（？）</li>
+        <li>最初からgitの大事な部分でした。ツリーを読み込むときも、書き出すときも、現在作業フォルダーから直接作ることではなく、indexから作られています。</li>
+        <li>作業フォルダーが全部なくなっても、indexから取り戻すことができます。</li>
+      </ul>
+      <p>
+      gitの基本データはこれぐらいですが、まだちょっと不便なことがあります。
+      それは、idからデータを取得することです。確かに、ツリーを持っていたらファイル名で取得できますが、
+      そのツリーはどうやって取得できるでしょうか？
+      コミットを持っていたらツリーを取れるけど、そのコミットは？
+      gitのストラクチャーを導かれる（？）ために、次のレイヤーが必要です。
+      </p>
+      </div>
     </div>
 
     <div id="ref" class="step objectDesc" data-x="-875" data-y="2546" data-scale="0.01" data-rotate="90">
@@ -343,6 +361,10 @@
       <img src="img/ref.svg" alt="Ref" height="500" />
       <div class="notes">
       <ul>
+        <li>ブランチもタグもレフの二つです。</li>
+        <li>違いは、コミットすればアクティブブランチは自動的に動きます。</li>
+        <li>タグはずっと同じコミットを取得します。</li>
+        <li>.git/refsのフォルダーに入っているファイル。ファイル名はブランチやタグの名前。内容はコミットのSHA1。</li>
       </ul>
       </div>
     </div>
@@ -350,11 +372,25 @@
     <div id="plumbing" class="pptitle step" data-x="-910" data-y="2505" data-scale="0.03" data-rotate="-30">
        <h1>配管</h1>
        <h2>Plumbing</h2>
+      <div class="notes">
+      <ul>
+        <li>gitの連想記憶ファイルシステムやオブジェクトモデルを直接触るコマンド。</li>
+        <li>UIとしては使いにくいけど、プログラミング的には読みやすい出力するので、スクリプトしやすいです。</li>
+        <li>元々の７つのコマンドはほとんどPlumbingコマンドでした。</li>
+      </ul>
+      </div>
     </div>
 
     <div id="porcelain" class="pptitle step" data-x="-840" data-y="2505" data-scale="0.03" data-rotate="30">
        <h1>磁器</h1>
        <h2>Porcelain</h2>
+      <div class="notes">
+      <ul>
+        <li>ユーザーが使う、UIとしてデザインされたコマンド。</li>
+        <li>git add, git commit, git push等。</li>
+        <li>多分、ご存知でしょう。</li>
+      </ul>
+      </div>
     </div>
 
     <div id="plumbingCommands" class="cmdlist step" data-x="-910" data-y="2535" data-scale="0.03">
