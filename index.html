@@ -207,6 +207,7 @@
         Example: Traditional
         </p>
         <pre>
+        $ cd fs
         $ mkdir foo bar
         $ echo foo > foo/hoge
         $ ls -l foo            #See there is a file called 'hoge'
@@ -223,6 +224,7 @@
         Example: Content-Addressable
         </p>
         <pre>
+        $ cd cafs
         $ git init             #We will be using git as our content-addressable fs
         $ git count-objects    #There are no objects
         $ echo foo | git hash-object -w --stdin
@@ -263,8 +265,10 @@
       <h1>三</h1>
       <h2 class="post">種類ある</h2>
       <div class="notes">
-        <p>
-        </p>
+        <pre>
+        # To get all object types...
+        $ find .git/objects -type f | while read f; do o=$(echo $f | awk -F'/' '{ print $3$4 }'); echo $f $(git cat-file -t $o); done
+        </pre>
       </div>
     </div>
 
@@ -274,6 +278,7 @@
       <img src="img/blob.svg" alt="Blob" height="450" />
       <div class="notes">
       <ul>
+        <li>前hash-objectで作ったオブジェクトは全部ブロブでした</li>
         <li>自分で作って入れている、ユーザーデータ</li>
         <li>gitにとって意味がない、ただのデータ</li>
         <li>バイナリでもテキストでもブロブになる</li>
@@ -291,6 +296,12 @@
           <li>連想記憶ファイルシステムから取得して、トラディショナルなファイルシステムに変換する</li>
           <li>一つのツリーは数ブロブと数ツリーを指定する</li>
         </ul>
+        <pre>
+        $ cd gits-guts
+        $ tree # This is the directory as seen through traditional fs eyes
+        $ git cat-file -p e1a95ff8e2b1e585c184aca5325fdf48ebf0e4521 # This is the tree object representing that directory
+        # Look at subdirectories, etc...
+        </pre>
       </div>
     </div>
 
@@ -326,6 +337,11 @@
         手動的にブロブやツリーを作って入れることは面倒でしょうね。
         そのために、次のレイヤーがあります。
         </p>
+        <pre>
+        $ cd obj
+        $ git cat-file -p 30047fba497d5a6bd3383d642c1e464461368199
+        # Navigate from there...
+        </pre>
       </div>
     </div>
 
@@ -366,6 +382,19 @@
         <li>タグはずっと同じコミットを指定します。</li>
         <li>.git/refsのフォルダーに入っているファイル。ファイル名はブランチやタグの名前。内容はコミットのSHA1。</li>
       </ul>
+      <pre>
+      $ cd refs
+      $ git --no-pager log --oneline --decorate --graph
+      # Point out tags, branches, remotes...
+      $ tree .git/refs
+      # See the same things are all there...
+      $ cat .git/refs/heads/master
+      # See it lists the sha1 of the master commit...
+      $ vim README.md # Change it...
+      # git commit -a -m "Changed"
+      $ git --no-pager log --oneline --decorate --graph
+      $ cat .git/refs/heads/master
+      </pre>
       </div>
     </div>
 
@@ -720,6 +749,93 @@
     </div>
 
     <div id="inside-overview" class="step" data-x="-875" data-y="2525" data-scale="0.07">
+      <div class="notes">
+        <pre>
+        # OK, some examples of how to do "normal git stuff" with just the original 7 commands!
+        $ cd cmds
+
+        # Initialise git.  This is synonymous with `git init`
+        $ git init-db
+        $ find .git/objects -type f
+
+        # Let's create some content and add it to the staging area
+        $ vim README.md # Write some stuff
+        $ git update-index --add README.md
+
+        # The blob file is made automatically when you add it to the index
+        $ find .git/objects -type f
+        $ find .git/objects -type f | awk -F'/' '{ print $3$4 }' | while read o; do echo $o $(git cat-file -t $o); done
+
+        # We need to make a tree, though...
+        $ git write-tree
+        $ find .git/objects -type f | awk -F'/' '{ print $3$4 }' | while read o; do echo $o $(git cat-file -t $o); done
+        $ git cat-file -p (SHA1)
+
+        # OK, now we actually want to take a tree and make it into a commit object
+        $ git commit-tree (SHA1) -m "Initial commit"
+        $ git cat-file -p (SHA1)
+        $ find .git/objects -type f | awk -F'/' '{ print $3$4 }' | while read o; do echo $o $(git cat-file -t $o); done
+
+        # Let's cheat a bit and use the log to see if it worked
+        $ git log
+
+        # bad default revision 'HEAD'? What's that all about?
+        $ tree .git
+
+        # There's a file called head in there, what's in that?
+        $ cat .git/HEAD
+
+        # OK, but there aren't any refs... let's try just putting tha sha1 in that filename
+        $ echo (SHA1) > .git/refs/heads/master
+        $ git log
+
+        # Awesome! It works.  Let's make a change.
+        $ vim README.md #Change something
+        $ git diff-files
+
+        # What does that all mean? Left-to-right:
+        #   permissions(src)
+        #   permissions(dst)
+        #   blob-sha1(src)
+        #   blob-sha1(dst)
+        #   status (added, removed, modified, etc)
+        #   filename
+        # The dest blob is 000.. because it hasn't yet been added to the index!
+        $ git update-index README.md
+        $ git diff-files
+        $ find .git/objects -type f | awk -F'/' '{ print $3$4 }' | while read o; do echo $o $(git cat-file -t $o); done
+        $ git write-tree
+
+        # This time we want to write our commit message in a proper text editor
+        $ vim .git/COMMIT_EDITMSG #Write it
+        $ git commit-tree (SHA1) -p (LAST_SHA1) -F .git/COMMIT_EDITMSG
+        $ git log # Master hasn't been updated!
+
+        # OK, so commit-tree doesn't update any refs because refs exist in a
+        # layer above these seven commands.  But we can easily update it
+        # automatically...
+        $ vim README.md # Change it
+        $ git update-index README.md
+        $ vim .git/COMMIT_EDITMSG
+        $ git commit-tree $(git write-tree) -p (LAST_SHA1) -F .git/COMMIT_EDITMSG > .git/refs/heads/master
+
+        # Hmm, wouldn't it be easier to wrap this process up into a script?
+        $ vim git-commit
+            #!/bin/bash
+
+            TREE=$(git write-tree)
+            HEAD=$(cat .git/refs/heads/master)
+
+            echo "" > .git/COMMIT_EDITMSG
+            vim .git/COMMIT_EDITMSG
+            git commit-tree $TREE -p $HEAD -F .git/COMMIT_EDITMSG > .git/refs/heads/master
+
+        $ chmod +x git-commit
+        $ git update-index --add git-commit
+        $ ./git-commit
+        $ git log
+        </pre>
+      </div>
     </div>
 </div>
 
