@@ -19,7 +19,7 @@ li {
 #title div#mydetails {
     text-align: center;
     position: absolute;
-    bottom: -250px;
+    bottom: -190px;
     left: 190px;
 }
 
@@ -268,8 +268,8 @@ pre, code {
 .naiyo {
   position: absolute;
   float: right;
-  right: -250px;
-  bottom: 595px;
+  right: -200px;
+  bottom: 505px;
 }
 
 .naiyo li {
@@ -316,7 +316,7 @@ pre, code {
 }
 
 .cmdlist td {
-    font-size: 20px;
+    font-size: 18px;
     vertical-align: middle;
     font-family: monospace;
     padding-right: 20px;
@@ -340,7 +340,7 @@ pre, code {
 }
 
 .cmdlist td .highlight {
-    font-size: 50px;
+    font-size: 45px;
 }
 
 #plumbingCommands {
