@@ -13,3 +13,7 @@ Slides generated using [impress.js][2].
 
 [1]: http://vshtc.doorkeeper.jp/events/11099
 [2]: https://github.com/bartaz/impress.js
+
+===
+
+[gh-pagesを追加](http://posaunehm.github.io/gits-guts/)
